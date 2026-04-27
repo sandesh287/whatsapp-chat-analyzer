@@ -10,9 +10,11 @@ import seaborn as sns
 # page config
 st.set_page_config(page_title="WhatsApp Analyzer", layout="wide")
 
+plt.rcParams['font.family'] = 'DejaVu Sans'
+
 # font path for emoji
-font_path = "C:/Windows/Fonts/seguiemj.ttf"  # Segoe UI Emoji
-prop = font_manager.FontProperties(fname=font_path)
+# font_path = "C:/Windows/Fonts/seguiemj.ttf"  # Segoe UI Emoji
+# prop = font_manager.FontProperties(fname=font_path)
 
 # ---- HEADER ----
 st.title("📊 WhatsApp Chat Analyzer")
@@ -115,7 +117,8 @@ if uploaded_file is not None:
         ax.pie(
           emoji_df['count'].head(), 
           labels=emoji_df['emoji'].head(), 
-          textprops={'fontproperties': prop, 'fontsize': 6},
+          # textprops={'fontproperties': prop, 'fontsize': 6},
+          textprops={'fontsize': 6},
           autopct="%1.1f%%",
           startangle=90,
           labeldistance=1.1,    # move labels outward
